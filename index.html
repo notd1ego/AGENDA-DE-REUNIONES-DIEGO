@@ -1221,7 +1221,13 @@ const MONTHS_ES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Ago
 const DAYS_ES = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 
 // ─── STORAGE ──────────────────────────────────────────
-function saveEvents() {
+async function saveEvents() {
+  const col = collection(db, "events");
+
+  for (let ev of events) {
+    await addDoc(col, ev);
+  }
+}
   try { localStorage.setItem('aracing_agenda_events', JSON.stringify(events)); } catch(e) {}
 }
 function loadEvents() {
