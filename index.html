@@ -1190,8 +1190,16 @@ font-family: 'Inter', sans-serif;
   </div>
 </div>
 <script type="module">
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, deleteDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+import { 
+  getFirestore, 
+  collection, 
+  addDoc, 
+  getDocs, 
+  deleteDoc   // 👈 ESTE ES EL QUE TE FALTA
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCp4lmMd59zs9c8ag9Q4t0o44svm2L0jPs",
@@ -1205,7 +1213,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-
 // ─── STATE ───
 let currentDate = new Date();
 let miniDate = new Date();
