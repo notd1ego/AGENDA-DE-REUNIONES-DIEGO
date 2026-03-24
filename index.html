@@ -1254,7 +1254,12 @@ function todayKey() {
 // ─── INIT ───
 loadEvents().then(() => {
   selectedDate = new Date();
-  render();
+  
+  if (typeof render === "function") {
+    render();
+  } else {
+    console.error("render no existe");
+  }
 });
 </script>
 </script>
