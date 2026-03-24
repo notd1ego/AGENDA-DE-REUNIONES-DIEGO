@@ -1230,7 +1230,13 @@ async function saveEvents() {
 }
   try { localStorage.setItem('aracing_agenda_events', JSON.stringify(events)); } catch(e) {}
 }
-function loadEvents() {
+async function loadEvents() {
+  const querySnapshot = await getDocs(collection(db, "events"));
+  events = [];
+  querySnapshot.forEach((doc) => {
+    events.push(doc.data());
+  });
+}
   try {
     const d = localStorage.getItem('aracing_agenda_events');
     if (d) events = JSON.parse(d);
