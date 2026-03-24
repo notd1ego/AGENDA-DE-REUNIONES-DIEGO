@@ -1263,7 +1263,16 @@ loadEvents().then(() => {
     console.error("render no existe");
   }
 });
-</script>
+  // HACER FUNCIONES GLOBALES
+window.miniNav = miniNav;
+window.openModal = openModal;
+window.closeModal = closeModal;
+window.saveEvent = saveEvent;
+window.deleteEvent = deleteEvent;
+window.toggleReminder = toggleReminder;
+window.prev = prev;
+window.next = next;
+window.renderAll = renderAll;
 </script>
 </body>
 </html>
