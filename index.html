@@ -1261,6 +1261,9 @@ loadEvents().then(() => {
   selectedDate = new Date();
   renderAll();
 });
+  function renderAll() {
+  console.log("renderAll ejecutado");
+}
 // HACER FUNCIONES GLOBALES
 window.miniNav = typeof miniNav !== "undefined" ? miniNav : null;
 window.openModal = typeof openModal !== "undefined" ? openModal : null;
