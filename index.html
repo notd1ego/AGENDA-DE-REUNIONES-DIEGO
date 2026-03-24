@@ -1191,8 +1191,19 @@ async function loadEvents() {
   );
 
   events = [];
+
   snapshot.forEach(doc => {
-    events.push(doc.data());
+    const data = doc.data();
+
+    // 🛠 aseguramos estructura correcta
+    events.push({
+      id: doc.id,
+      title: data.title || "",
+      date: data.date || "",
+      time: data.time || "",
+      desc: data.desc || "",
+      reminder: data.reminder || false
+    });
   });
 }
 
