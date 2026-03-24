@@ -1264,7 +1264,12 @@ loadEvents().then(() => {
   render();
 });
 
-
+function render() {
+  if (typeof renderMiniCal === "function") renderMiniCal();
+  if (typeof renderMonthGrid === "function") renderMonthGrid();
+  if (typeof renderWeekView === "function") renderWeekView();
+  if (typeof renderUpcoming === "function") renderUpcoming();
+}
 // HACER FUNCIONES GLOBALES
 window.miniNav = typeof miniNav !== "undefined" ? miniNav : null;
 window.openModal = typeof openModal !== "undefined" ? openModal : null;
