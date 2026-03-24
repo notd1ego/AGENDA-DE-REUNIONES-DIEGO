@@ -1254,6 +1254,8 @@ function todayKey() {
 // ─── INIT ───
 loadEvents().then(() => {
   selectedDate = new Date();
+  renderAll();
+});
   
   if (typeof render === "function") {
   renderAll();
