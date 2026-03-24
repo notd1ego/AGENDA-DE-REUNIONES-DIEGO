@@ -1182,7 +1182,13 @@ async function saveEvents() {
   }
 
   for (let ev of events) {
-    await window.fb.addDoc(col, ev);
+    await window.fb.addDoc(col, {
+      title: ev.title || "",
+      date: ev.date || "",
+      time: ev.time || "",
+      desc: ev.desc || "",
+      reminder: ev.reminder || false
+    });
   }
 }
 async function loadEvents() {
