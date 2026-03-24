@@ -1264,6 +1264,11 @@ loadEvents().then(() => {
   function renderAll() {
   console.log("renderAll ejecutado");
 }
+  function renderAll() {
+  if (typeof renderCalendar === "function") renderCalendar();
+  if (typeof renderMiniCalendar === "function") renderMiniCalendar();
+  if (typeof renderUpcoming === "function") renderUpcoming();
+}
 // HACER FUNCIONES GLOBALES
 window.miniNav = typeof miniNav !== "undefined" ? miniNav : null;
 window.openModal = typeof openModal !== "undefined" ? openModal : null;
