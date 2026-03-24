@@ -1261,16 +1261,16 @@ loadEvents().then(() => {
   selectedDate = new Date();
   renderAll();
 });
-  // HACER FUNCIONES GLOBALES
-window.miniNav = miniNav;
-window.openModal = openModal;
-window.closeModal = closeModal;
-window.saveEvent = saveEvent;
-window.deleteEvent = deleteEvent;
-window.toggleReminder = toggleReminder;
-window.prev = prev;
-window.next = next;
-window.renderAll = renderAll;
+// HACER FUNCIONES GLOBALES
+window.miniNav = typeof miniNav !== "undefined" ? miniNav : null;
+window.openModal = typeof openModal !== "undefined" ? openModal : null;
+window.closeModal = typeof closeModal !== "undefined" ? closeModal : null;
+window.saveEvent = typeof saveEvent !== "undefined" ? saveEvent : null;
+window.deleteEvent = typeof deleteEvent !== "undefined" ? deleteEvent : null;
+window.toggleReminder = typeof toggleReminder !== "undefined" ? toggleReminder : null;
+window.prev = typeof prev !== "undefined" ? prev : null;
+window.next = typeof next !== "undefined" ? next : null;
+window.renderAll = typeof renderAll !== "undefined" ? renderAll : null;
 </script>
 </body>
 </html>
