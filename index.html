@@ -1710,7 +1710,9 @@ document.addEventListener('keydown', e => {
 });
 
 // ─── INIT ────────────────────────────────────────────
-await loadEvents();
+loadEvents().then(() => {
+  render();
+});
 loadFromURL();
 selectedDate = new Date();
 requestNotifPermission();
