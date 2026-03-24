@@ -1173,8 +1173,17 @@ const MONTHS_ES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Ago
 const DAYS_ES = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 
 // ─── STORAGE ──────────────────────────────────────────
-function saveEvents() {
-  try { localStorage.setItem('aracing_agenda_events', JSON.stringify(events)); } catch(e) {}
+async function saveEvents() {
+  const col = window.fb.collection(window.db, "events");
+
+  const snapshot = await window.fb.getDocs(col);
+  for (const docu of snapshot.docs) {
+    await window.fb.deleteDoc(docu.ref);
+  }
+
+  for (let ev of events) {
+    await window.fb.addDoc(col, ev);
+  }
 }
 function loadEvents() {
   try {
