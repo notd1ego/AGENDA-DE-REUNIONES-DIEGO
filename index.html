@@ -1136,6 +1136,27 @@
   </div>
 </div>
 
+  <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCp4lmMd59zs9c8ag9Q4t0o44svm2L0jPs",
+  authDomain: "agenda-4418b.firebaseapp.com",
+  projectId: "agenda-4418b",
+  storageBucket: "agenda-4418b.firebasestorage.app",
+  messagingSenderId: "26992914640",
+  appId: "1:26992914640:web:42dc9976b144048f1d2ed5",
+  measurementId: "G-Y5JYN4HYL0"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// hacer global
+window.db = db;
+window.fb = { collection, addDoc, getDocs, deleteDoc };
+</script>
 <script>
 // ─── STATE ───────────────────────────────────────────
 let currentDate = new Date();
