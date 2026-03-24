@@ -1224,11 +1224,15 @@ const DAYS_ES = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 async function saveEvents() {
   const col = collection(db, "events");
 
+  // borra todo antes de guardar (evita duplicados)
+  const snapshot = await getDocs(col);
+  for (const docu of snapshot.docs) {
+    await deleteDoc(docu.ref);
+  }
+
   for (let ev of events) {
     await addDoc(col, ev);
   }
-}
-  try { localStorage.setItem('aracing_agenda_events', JSON.stringify(events)); } catch(e) {}
 }
 async function loadEvents() {
   const querySnapshot = await getDocs(collection(db, "events"));
