@@ -1256,7 +1256,7 @@ loadEvents().then(() => {
   selectedDate = new Date();
   
   if (typeof render === "function") {
-    render();
+  renderAll();
   } else {
     console.error("render no existe");
   }
