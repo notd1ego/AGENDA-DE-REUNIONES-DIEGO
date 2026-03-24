@@ -1256,12 +1256,10 @@ loadEvents().then(() => {
   selectedDate = new Date();
   renderAll();
 });
-  
-  if (typeof render === "function") {
+// ─── INIT ───
+loadEvents().then(() => {
+  selectedDate = new Date();
   renderAll();
-  } else {
-    console.error("render no existe");
-  }
 });
   // HACER FUNCIONES GLOBALES
 window.miniNav = miniNav;
