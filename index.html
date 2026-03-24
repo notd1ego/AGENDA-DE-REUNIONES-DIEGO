@@ -1185,11 +1185,15 @@ async function saveEvents() {
     await window.fb.addDoc(col, ev);
   }
 }
-function loadEvents() {
-  try {
-    const d = localStorage.getItem('aracing_agenda_events');
-    if (d) events = JSON.parse(d);
-  } catch(e) { events = []; }
+async function loadEvents() {
+  const snapshot = await window.fb.getDocs(
+    window.fb.collection(window.db, "events")
+  );
+
+  events = [];
+  snapshot.forEach(doc => {
+    events.push(doc.data());
+  });
 }
 
 // ─── HELPERS ─────────────────────────────────────────
