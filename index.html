@@ -1711,13 +1711,12 @@ document.addEventListener('keydown', e => {
 
 // ─── INIT ────────────────────────────────────────────
 loadEvents().then(() => {
+  loadFromURL();
+  selectedDate = new Date();
+  requestNotifPermission();
+  events.filter(e => e.reminder).forEach(scheduleReminder);
   render();
 });
-loadFromURL();
-selectedDate = new Date();
-requestNotifPermission();
-events.filter(e => e.reminder).forEach(scheduleReminder);
-render();
 </script>
 </body>
 </html>
